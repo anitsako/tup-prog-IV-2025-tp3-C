@@ -1,68 +1,67 @@
+/* ====== Tema y variables Pico ====== */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --pico-font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --pico-border-radius: 12px;
+  --pico-spacing: 0.85rem;
+  --pico-primary: 240 95% 68%;    /* color primario (HSL sin /) */
+  --pico-primary-contrast: 0 0% 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Modo oscuro por defecto (opcional) */
+:root[data-theme="dark"] {
+  --pico-background-color: hsl(220 18% 10%);
+  --pico-card-background-color: hsl(220 18% 12%);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+/* ====== Layout ====== */
+.container { max-width: 1100px; }
+
+/* Topbar */
+nav.container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-block: 0.75rem;
+}
+nav ul { margin: 0; }
+
+/* Links activos en navbar */
+.navlink { opacity: .85; }
+.navlink[aria-current="page"] { opacity: 1; text-decoration: underline; }
+
+/* ====== “Card” genéricas para formularios/tablas ====== */
+.section-card {
+  background: var(--pico-card-background-color);
+  padding: 1.25rem;
+  border-radius: var(--pico-border-radius);
+  box-shadow: 0 4px 20px rgb(0 0 0 / .18);
+  margin-bottom: 1.25rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Títulos compactos */
+.section-card h2, .section-card h3 { margin-top: 0; }
+
+/* ====== Formularios ====== */
+form .grid { margin-bottom: .5rem; }
+small.error {
+  color: hsl(0 80% 70%);
+  display: block;
+  margin-top: .25rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Botones */
+button.secondary { --pico-background-color: hsl(240 12% 20%); }
+
+/* ====== Tablas ====== */
+.table-wrap { overflow: auto; }
+table.striped tbody tr:nth-child(odd) { background: hsl(0 0% 100% / .02); }
+td, th { white-space: nowrap; }
+
+/* Badges para datos clave */
+.badge {
+  display: inline-block; padding: .15rem .5rem; border-radius: 999px;
+  background: hsl(var(--pico-primary) / .15); color: hsl(var(--pico-primary));
+  font-size: .8rem; font-weight: 600;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* Filtros plegables */
+details.cardlike { border: 1px solid hsl(0 0% 100% / .08); border-radius: var(--pico-border-radius); padding: .75rem 1rem; }
+details.cardlike > summary { font-weight: 600; cursor: pointer; }
