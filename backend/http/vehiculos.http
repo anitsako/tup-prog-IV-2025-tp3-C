@@ -1,0 +1,40 @@
+@host = {{host}}
+@token = {{token}}
+
+### Listar vehículos
+GET {{host}}/api/vehiculos
+Authorization: Bearer {{token}}
+
+### Crear vehículo
+POST {{host}}/api/vehiculos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "Toyota",
+  "modelo": "Hilux",
+  "patente": "AA123BB",
+  "año": 2020,
+  "capacidad_carga": 1200
+}
+
+### Obtener vehículo por id
+GET {{host}}/api/vehiculos/1
+Authorization: Bearer {{token}}
+
+### Actualizar vehículo
+PUT {{host}}/api/vehiculos/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "Toyota",
+  "modelo": "Hilux SRV",
+  "patente": "AA123BB",
+  "año": 2021,
+  "capacidad_carga": 1250
+}
+
+### Eliminar vehículo
+DELETE {{host}}/api/vehiculos/1
+Authorization: Bearer {{token}}

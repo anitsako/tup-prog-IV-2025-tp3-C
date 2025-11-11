@@ -1,0 +1,18 @@
+### Registro
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "email": "ana@gmail.com",
+  "password": "secreto123"
+}
+
+### Login
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ana@gmail.com",
+  "password": "secreto123"
+}

@@ -1,0 +1,40 @@
+@host = {{host}}
+@token = {{token}}
+
+### Listar conductores
+GET {{host}}/api/conductores
+Authorization: Bearer {{token}}
+
+### Crear conductor
+POST {{host}}/api/conductores
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido": "Gómez",
+  "dni": "30111222",
+  "licencia": "L-2025-001",
+  "licencia_vencimiento": "2027-12-31"
+}
+
+### Obtener conductor por id
+GET {{host}}/api/conductores/1
+Authorization: Bearer {{token}}
+
+### Actualizar conductor
+PUT {{host}}/api/conductores/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido": "Gómez",
+  "dni": "30111222",
+  "licencia": "L-2025-001",
+  "licencia_vencimiento": "2028-01-31"
+}
+
+### Eliminar conductor
+DELETE {{host}}/api/conductores/1
+Authorization: Bearer {{token}}
